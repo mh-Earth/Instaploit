@@ -1,14 +1,14 @@
 import os,sys,time
 from itertools import islice
 from math import ceil
-from colorama import Fore,Cursor
-from terminaltables import AsciiTable,DoubleTable
+from terminaltables import DoubleTable
 import instaloader
 from instapy import InstaPy
 from comparison import comparisonID
 from instapy import smart_run
 from banner import randomBanners,ranbomTips
 from getpass import getpass
+
 
 
 exit_msg = "\033[91m\n[++] Shutting down ... Goodbye. (^_^)／\n\033[91m"
@@ -79,7 +79,7 @@ def Login():
         module = input("\n\033[91m[{M}]\033[92m Chose a module::\033[92m")
         module = module.lower()
         if module == "":
-            print("\033[91mChose a module::\033[91m")
+            print("\n\033[91m[{M}]\033[92m Chose a module::\033[92m")
         elif module == "exit":
             sys.exit(exit_msg)
         elif module == "home":
@@ -96,7 +96,7 @@ def Login():
             modulesForDownp()
             def downp():
                 global username,insta
-                module = input("\033[92mChoses a module::\033[92m")
+                module = input("\n\033[91m[{M}]\033[92m Chose a module::\033[92m")
 
                 if module == "df":
                     print("""\033[93m
@@ -113,7 +113,6 @@ def Login():
                     elif targetId == "exit":
                         sys.exit(exit_msg)
                     elif targetId == "home":
-                        insta.save_session_to_file()
                         main()
                     elif targetId == "help":
                         modulesForDownp()
@@ -125,7 +124,7 @@ def Login():
                     print("""\033[93m
 ┌══════════════════════════════════════════════════════════════════════════════════════┐
 █                                                                                      █
-█                                 Download the profile pic                             █
+█                                Download the profile pic                              █
 █                                                                                      █
 └══════════════════════════════════════════════════════════════════════════════════════┘ \033[93m""")
                     def dpp():
@@ -135,7 +134,6 @@ def Login():
                         elif targetId == "exit":
                             sys.exit(exit_msg)
                         elif targetId == "home":
-                            insta.save_session_to_file()
                             main()
                         elif targetId == "help":
                             modulesForDownp()
@@ -158,7 +156,6 @@ def Login():
                     if targetId == "back":
                         downp()
                     elif targetId == "exit":
-                        insta.save_session_to_file()
                         sys.exit(exit_msg)
                     elif targetId == "home":
                         main()
@@ -184,10 +181,8 @@ def Login():
                     if targetId == "back":
                         downp()
                     elif targetId == "exit":
-                        insta.save_session_to_file()
                         sys.exit(exit_msg)
                     elif targetId == "home":
-                        insta.save_session_to_file()
                         main()
                     elif targetId == "help":
                         modulesForDownp()
@@ -210,10 +205,8 @@ def Login():
                         if ShortCode == "back":
                             downp()
                         elif ShortCode == "exit":
-                            insta.save_session_to_file()
                             sys.exit(exit_msg)
                         elif ShortCode == "home":
-                            insta.save_session_to_file()
                             main()
                         elif ShortCode == "help":
                             downp()
@@ -242,10 +235,8 @@ def Login():
                     if targetId == "back":
                         downp()
                     elif targetId == "exit":
-                        insta.save_session_to_file()
                         sys.exit(exit_msg)
                     elif targetId == "home":
-                        insta.save_session_to_file()
                         main()
                     elif targetId == "help":
                         modulesForDownp()
@@ -266,10 +257,8 @@ def Login():
                     if targetId == "back":
                         downp()
                     elif targetId == "exit":
-                        insta.save_session_to_file()
                         sys.exit(exit_msg)
                     elif targetId == "home":
-                        insta.save_session_to_file()
                         main()
                     elif targetId == "help":
                         modulesForDownp()
@@ -522,7 +511,6 @@ def Login():
                     # ____________________________________________
 
                     print("\033[93m[+]List of following:\033[93m")
-                    print(calls)
                     for index,users in enumerate(following):
                         print(f'\033[97m{index+1}.{users.username}\033[97m')
                         index+= 1
@@ -794,7 +782,6 @@ def Login():
                 input("\033[92m[+]Press enter to continue \033[92m")
             adcm()
         elif module == "exit":
-            os.system("rm -r config")
             sys.exit(exit_msg)
 
         elif module == "back":
@@ -821,10 +808,10 @@ def Login():
 def Guest():
     global insta,target
     modulesForGuest()
-    module = input("\033[92mChose a module::\033[92m")
+    module = input("\n\033[91m[{M}]\033[92m Chose a module::\033[92m")
     module=module.lower()
     if module == "":
-        print("\033[91mChose a module::\033[91m")
+        print("\n\033[91m[{M}]\033[92m Chose a module::\033[92m")
     elif module == "exit":
         sys.exit(exit_msg)
     elif module == "home":
@@ -836,7 +823,7 @@ def Guest():
         def downt():
             global insta,target
             modulesForDownt()
-            module = input("\033[92mChoses a module::\033[92m")
+            module = input("\n\033[91m[{M}]\033[92m Chose a module::\033[92m")
 
             if module == "df":
                 print("""\033[93m
@@ -1108,7 +1095,7 @@ def modulesForGuest():
     time.sleep(.5)
     table_datas = [
     ["\n\033[94m\033[136m\n\n\n\n\n\nMODULES\n", """
-    downt               :  Download anything thing from profile.
+    downt               :  Download anything from profile.
 
     chgt                :  Change target.
 
@@ -1123,7 +1110,7 @@ def modulesForLogin():
     time.sleep(.5)
     table_datas = [
     ["\033[94m\033[136m\n\n\n\n\n\n\n\nMODULES\n", """
-    downp               :  Download anything thing from profile.
+    downp               :  Download anything from profile.
 
     gfls                :  Get following and followers list.
 
