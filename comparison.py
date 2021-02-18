@@ -229,5 +229,3 @@ def comparisonID(id1,id2,usename):
         print(f"\033[91m[-]{e}\033[91m")
     t2 = time()
     print(f"\033[92m[+]Finished in {t2-t1}s\033[92m")
-
-comparisonID("_python_coding","intracoder","_python_coding")
