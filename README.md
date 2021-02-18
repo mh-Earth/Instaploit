@@ -1,6 +1,6 @@
 # Instaploit
 ---
-## An advance tool for instargam
+## An advance tool for instagram
 
 > Screenshot of instaploit:
 
@@ -11,8 +11,8 @@
 
 ## How to run it?
 
-*Run `pip install -r requirement.txt or pip3 install -r requirement.txt`
-* Than the instaploit.py file
+* Run `pip install -r requirement.txt or pip3 install -r requirement.txt`
+* Then run the instaploit.py file
 * Make sure you system have install firefox
 * On liunx run `sudo apt install firefox-geckodriver`
 
