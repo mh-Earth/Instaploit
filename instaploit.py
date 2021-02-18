@@ -11,8 +11,6 @@ from banner import randomBanners,ranbomTips
 from getpass import getpass
 
 
-# 3mDVbNCS2C2ewZd
-
 exit_msg = "\033[91m\n[++] Shutting down ... Goodbye. (^_^)／\n\033[91m"
 def banner():
     print(f"\033[91m[++]Tips:{ranbomTips()}\033[91m")                        
