@@ -1,0 +1,8 @@
+instaloader==4.6.1
+instapy==0.6.13
+requests==2.25.1
+selenium==3.141.0
+six==1.15.0
+soupsieve==2.2
+terminaltables==3.1.0
+webdriverdownloader==1.1.0.3
