@@ -64,10 +64,15 @@ def main():
 █                                                                                        █
 └════════════════════════════════════════════════════════════════════════════════════════┘ \033[93m""")
         global target
+        modulesForGuest()
         target = input("\033[92m[+]Enter target user name::\033[92m")
         Guest()
     elif startUp == "exit":
         sys.exit(exit_msg)
+
+    elif startUp == "clear":
+        os.system("clear")
+
     else:
         print("\033[91m[!]Invalid option\033[91m")
         main()
@@ -380,6 +385,9 @@ def Login():
                 elif module == "help":
                     modulesForDownp()
 
+                elif module == "clear":
+                    os.system("clear")
+
                 elif module == "exit":
                     sys.exit(exit_msg)
                 
@@ -484,7 +492,7 @@ def Login():
                 elif run=="run":
                     print("\033[92m[+]Getting follower & following list..........\033[92m")
                     insta.check_profile_id(username)
-                    profile = instaloader.Profile.from_username(insta.context, username = username)
+                    profile = instaloader.Profile.from_username(insta.context, username = targetId)
                     followers = profile.get_followers()
                     following = profile.get_followees()
 
@@ -787,6 +795,9 @@ def Login():
         elif module == "back":
             main()
 
+        elif module == "clear":
+            os.system("clear")
+
         elif module == "help":
             modulesForLogin()
         else:
@@ -807,17 +818,22 @@ def Login():
 
 def Guest():
     global insta,target
-    modulesForGuest()
     module = input("\n\033[91m[{M}]\033[92m Chose a module::\033[92m")
     module=module.lower()
     if module == "":
         print("\n\033[91m[{M}]\033[92m Chose a module::\033[92m")
+
     elif module == "exit":
         sys.exit(exit_msg)
+
     elif module == "home":
         main()
+
     elif module == "help":
-        modulesForLogin()
+        modulesForGuest()
+
+    elif module == "clear":
+        os.system("clear")
 # ___________________________________________________________________________
     elif module == "downt":
         def downt():
@@ -899,7 +915,7 @@ def Guest():
                 print("""\033[93m
 ┌═════════════════════════════════════════════════════════════════════════════════════┐
 █                                                                                     █
-█                                  Download all post                                  █
+█                                   Download all pic                                  █
 █                                                                                     █
 █                              The account must be public                             █
 █                                                                                     █
@@ -1065,9 +1081,13 @@ def Guest():
 
             elif module == "exit":
                 sys.exit(exit_msg)
-            
+
+            elif module == "clear":
+                os.system("clear")
+
             elif module == "back":
                 Guest()
+            
             
             elif module == "home":
                 main()
@@ -1075,14 +1095,18 @@ def Guest():
                 print(f"\033[91m[!]'{module}' module not found\033[91m")
 
             downt()
-
         downt()
+
     elif module == "chgt":
         target = input("\033[92m[+]Enter new target::\033[92m")
         Guest()
+
+
     else:
         print(f"\033[91m[!]'{module}' module not found\033[91m")
         Guest()
+
+    Guest()
         
 # _____________________________________________________________________________________________________
 # _____________________________________________________________________________________________________
@@ -1094,14 +1118,14 @@ def Guest():
 def modulesForGuest():
     time.sleep(.5)
     table_datas = [
-    ["\n\033[94m\033[136m\n\n\n\n\n\nMODULES\n", """
-    downt               :  Download anything from profile.
+    ["\n\033[94m\033[136m\n\n\nMODULES\n", """
+    downt          :  Download anything from profile.
 
-    chgt                :  Change target.
+    chgt           :  Change target.
 
-    help                :  Display this help message.
+    help           :  Display this help message.
 
-    exit                :  Close Instrabot.\n\033[1;m\033[94m"""]
+    exit           :  Close Instrabot.\n\033[1;m\033[94m"""]
     ]
     table = DoubleTable(table_datas)
     print(table.table)        
@@ -1110,27 +1134,27 @@ def modulesForLogin():
     time.sleep(.5)
     table_datas = [
     ["\033[94m\033[136m\n\n\n\n\n\n\n\nMODULES\n", """
-    downp               :  Download anything from profile.
+    downp          :  Download anything from profile.
 
-    gfls                :  Get following and followers list.
+    gfls           :  Get following and followers list.
 
-    nfbi                :  list out all non-followback id's.
+    nfbi           :  list out all non-followback id's.
 
-    ghostf              :  List out all Ghost Followers.
+    ghostf         :  List out all Ghost Followers.
 
-    fllw                :  Follow a id or id's 
+    fllw           :  Follow a id or id's 
 
-    ufllw               :  Unfollow a id or id's.
+    ufllw          :  Unfollow a id or id's.
 
-    scf                 :  Search a user from someone else following or follower.
+    scf            :  Search a user from someone else following or follower.
 
-    adcm                :  An advanced comparison between two id.
+    adcm           :  An advanced comparison between two id.
 
-    help                :  Display this help message.
+    help           :  Display this help message.
 
-    rmlog               :  Delete all login logs.
+    rmlog          :  Delete all login logs.
 
-    exit                :  Close Instrabot.\n\033[1;m\033[94m"""]
+    exit           :  Close Instrabot.\n\033[1;m\033[94m"""]
     ]
     table = DoubleTable(table_datas)
     print(table.table)        
@@ -1139,35 +1163,35 @@ def modulesForDownp():
     time.sleep(.5)
     table_datas = [
     ["\033[94m\033[136m\n\n\n\n\n\n\n\n\n\n\n\nMODULES\n", """
-    df                  :  Download every thing from profile with caption and tags.
+    df             :  Download every thing from profile with caption and tags.
 
-    dpp                 :  Download profile pic.
+    dpp            :  Download profile pic.
 
-    dmrp                :  Download the most recent post.
+    dmrp           :  Download the most recent post.
 
-    dap                 :  Download all pic.
+    dap            :  Download all pic.
 
-    dmpp                :  Download the most liked post
+    dmpp           :  Download the most liked post
 
-    tap                 :  Download a posts where the profile is tagged.
+    tap            :  Download a posts where the profile is tagged.
 
-    hap                 :  Download the highlights of that profile.
+    hap            :  Download the highlights of that profile.
 
-    vap                 :  Download all videos from profile.
+    vap            :  Download all videos from profile.
 
-    gap                 :  Download all igtv videos from profile.+
+    gap            :  Download all igtv videos from profile.+
 
-    sap                 :  Download all saved from profile.+
+    sap            :  Download all saved from profile.+
 
-    app                 :  Download a particular post.
+    app            :  Download a particular post.
 
-    fap                 :  Download pictures from feed.
+    fap            :  Download pictures from feed.
 
-    uap                 :  Update a profile.
+    uap            :  Update a profile.
 
-    help                :  Display this help message.
+    help           :  Display this help message.
 
-    exit                :  Close Instrabot.\n\033[1;m\033[94m"""]
+    exit           :  Close Instrabot.\n\033[1;m\033[94m"""]
     ]
     table = DoubleTable(table_datas)
     print(table.table)        
@@ -1176,29 +1200,27 @@ def modulesForDownt():
     time.sleep(.5)
     table_datas = [
     ["\033[94m\033[136m\n\n\n\n\n\n\n\n\n\n\n\nMODULES\n", """
-    df                  :  Download every thing from profile with caption and tags.
+    df             :  Download every thing from profile with caption and tags.
 
-    dpp                 :  Download profile pic.
+    dpp            :  Download profile pic.
 
-    dmrp                :  Download the most recent post.
+    dmrp           :  Download the most recent post.
 
-    dap                 :  Download all pic.
+    dap            :  Download all pic.
 
-    dmpp                :  Download the most liked post
+    dmpp           :  Download the most liked post
 
-    tap                 :  Download a posts where the profile is tagged.
+    tap            :  Download a posts where the profile is tagged.
 
-    vap                 :  Download all videos from profile.
+    vap            :  Download all videos from profile.
 
-    gap                 :  Download all igtv videos from profile.+
+    gap            :  Download all igtv videos from profile.+
 
-    app                 :  Download a particular post.
+    app            :  Download a particular post.
 
-    uap                 :  Update a profile.
+    help           :  Display this help message.
 
-    help                :  Display this help message.
-
-    exit                :  Close Instrabot.\n\033[1;m\033[94m"""]
+    exit           :  Close Instrabot.\n\033[1;m\033[94m"""]
     ]
     table = DoubleTable(table_datas)
     print(table.table)        
