@@ -3,17 +3,20 @@ from itertools import islice
 from math import ceil
 from terminaltables import DoubleTable
 import instaloader
+from colorama import Fore
 from instapy import InstaPy
 from comparison import comparisonID
 from instapy import smart_run
 from banner import randomBanners,ranbomTips
 from getpass import getpass
-
+from random import choice
 
 
 exit_msg = "\033[91m\n[++] Shutting down ... Goodbye. (^_^)／\n\033[91m"
 def banner():
-    print(f"\033[91m[++]Tips:{ranbomTips()}\033[91m")                        
+    colors = [Fore.LIGHTRED_EX, Fore.LIGHTGREEN_EX,Fore.LIGHTRED_EX, Fore.LIGHTRED_EX, Fore.LIGHTBLUE_EX, Fore.LIGHTMAGENTA_EX, Fore.LIGHTCYAN_EX,Fore.YELLOW]
+    randomColors = choice(colors)
+    print(f"{randomColors}[++]Tips:{ranbomTips()}")                        
     print(randomBanners())
     print('''
                       _________ _\|/_ Powered by instaloader _\|/_ ______________
@@ -70,7 +73,7 @@ def main():
     elif startUp == "exit":
         sys.exit(exit_msg)
 
-    elif startUp == "clear":
+    elif startUp == "cla":
         os.system("clear")
 
     else:
@@ -89,7 +92,7 @@ def Login():
             sys.exit(exit_msg)
         elif module == "home":
             main()
-        elif module == "help":
+        elif module == "ls":
             modulesForLogin()
     # ___________________________________________________________________________
     # ___________________________________________________________________________
@@ -119,7 +122,7 @@ def Login():
                         sys.exit(exit_msg)
                     elif targetId == "home":
                         main()
-                    elif targetId == "help":
+                    elif targetId == "ls":
                         modulesForDownp()
                     else:    
                         os.system(f"instaloader profile -l {username} --no-metadata-json --no-compress-json --igtv --saved --highlights --tagged {targetId}")
@@ -140,7 +143,7 @@ def Login():
                             sys.exit(exit_msg)
                         elif targetId == "home":
                             main()
-                        elif targetId == "help":
+                        elif targetId == "ls":
                             modulesForDownp()
                             dpp()
                         else:    
@@ -164,7 +167,7 @@ def Login():
                         sys.exit(exit_msg)
                     elif targetId == "home":
                         main()
-                    elif targetId == "help":
+                    elif targetId == "ls":
                         modulesForDownp()
                     else:    
                         posts = instaloader.Profile.from_username(insta.context, targetId).get_posts()
@@ -189,7 +192,7 @@ def Login():
                         sys.exit(exit_msg)
                     elif targetId == "home":
                         main()
-                    elif targetId == "help":
+                    elif targetId == "ls":
                         modulesForDownp()
                     else:    
                         os.system(f"instaloader -l {username} --no-videos --no-video-thumbnails --no-metadata-json --no-compress-json --no-captions  {targetId}")
@@ -213,12 +216,12 @@ def Login():
                             sys.exit(exit_msg)
                         elif ShortCode == "home":
                             main()
-                        elif ShortCode == "help":
+                        elif ShortCode == "ls":
                             downp()
                         elif ShortCode == "--help":
                             print("\033[92m[+]Visit https://elfsight.com/blog/2015/10/how-to-get-instagram-photo-shortcode get post short code\033[92m")
                             app()
-                        elif ShortCode == "help":
+                        elif ShortCode == "ls":
                             modulesForDownp()
                         else:    
                             os.system(f"instaloader -- -{ShortCode}")
@@ -243,7 +246,7 @@ def Login():
                         sys.exit(exit_msg)
                     elif targetId == "home":
                         main()
-                    elif targetId == "help":
+                    elif targetId == "ls":
                         modulesForDownp()
                     else:    
                         os.system(f"instaloader --l {username}  --no-profile-pic --no-posts --no-metadata-json --no-compress-json --no-captions --no-videos --tagged {targetId}")
@@ -265,7 +268,7 @@ def Login():
                         sys.exit(exit_msg)
                     elif targetId == "home":
                         main()
-                    elif targetId == "help":
+                    elif targetId == "ls":
                         modulesForDownp()
                     else:    
                         os.system(f"instaloader -l {username} --no-posts --no-video-thumbnails --no-metadata-json --no-compress-json --no-captions --no-videos --highlights {targetId}")
@@ -287,7 +290,7 @@ def Login():
                         sys.exit(exit_msg)
                     elif targetId == "home":
                         main()
-                    elif targetId == "help":
+                    elif targetId == "ls":
                         modulesForDownp()
                     else:    
                         os.system(f"instaloader -l {username} --no-posts --no-metadata-json --no-compress-json --no-captions --igtv {targetId}")
@@ -309,7 +312,7 @@ def Login():
                         sys.exit(exit_msg)
                     elif targetId == "home":
                         main()
-                    elif targetId == "help":
+                    elif targetId == "ls":
                         modulesForDownp()
                     else:    
                         os.system(f"instaloader -l {username} --no-pictures --no-video-thumbnails --no-metadata-json --no-compress-json --no-captions  --igtv {targetId}")
@@ -329,7 +332,7 @@ def Login():
                         sys.exit(exit_msg)
                     elif targetId == "home":
                         main()
-                    elif targetId == "help":
+                    elif targetId == "ls":
                         modulesForDownp()
                     else:    
                         os.system(f"instaloader -l {username} --fast-update profile {targetId}")
@@ -382,10 +385,10 @@ def Login():
                             break
                         dmpp()
                     dmpp()
-                elif module == "help":
+                elif module == "ls":
                     modulesForDownp()
 
-                elif module == "clear":
+                elif module == "cla":
                     os.system("clear")
 
                 elif module == "exit":
@@ -487,7 +490,7 @@ def Login():
                     sys.exit(exit_msg)
                 elif run == "home":
                     main()
-                elif run == "help":
+                elif run == "ls":
                     modulesForLogin()
                 elif run=="run":
                     print("\033[92m[+]Getting follower & following list..........\033[92m")
@@ -551,7 +554,7 @@ def Login():
                 sys.exit(exit_msg)
             elif run == "home":
                 main()
-            elif run == "help":
+            elif run == "ls":
                 modulesForLogin()
             elif run=="run":
                 def scf():
@@ -638,7 +641,7 @@ def Login():
                     sys.exit(exit_msg)
                 elif run == "home":
                     main()
-                elif run == "help":
+                elif run == "ls":
                     modulesForLogin()
                 elif run == "run":
                     print("\033[92m[+]Removeing all login information\033[92m")
@@ -795,10 +798,10 @@ def Login():
         elif module == "back":
             main()
 
-        elif module == "clear":
+        elif module == "cla":
             os.system("clear")
 
-        elif module == "help":
+        elif module == "ls":
             modulesForLogin()
         else:
             print(f"\033[91m[!]'{module}' module not found\033[91m")
@@ -829,16 +832,19 @@ def Guest():
     elif module == "home":
         main()
 
-    elif module == "help":
+    elif module == "back":
+        main()
+
+    elif module == "ls":
         modulesForGuest()
 
-    elif module == "clear":
+    elif module == "cla":
         os.system("clear")
 # ___________________________________________________________________________
     elif module == "downt":
+        modulesForDownt()
         def downt():
             global insta,target
-            modulesForDownt()
             module = input("\n\033[91m[{M}]\033[92m Chose a module::\033[92m")
 
             if module == "df":
@@ -858,7 +864,7 @@ def Guest():
                     sys.exit(exit_msg)
                 elif run == "home":
                     main()
-                elif run == "help":
+                elif run == "ls":
                     modulesForDownt()
                 else:    
                     os.system(f"nstaloader profile --no-metadata-json --no-compress-json --igtv --saved --highlights --tagged {target}")
@@ -879,7 +885,7 @@ def Guest():
                     sys.exit(exit_msg)
                 elif run == "home":
                     main()
-                elif run == "help":
+                elif run == "ls":
                     modulesForDownt()
                 else:    
                     os.system(f"instaloader --no-posts --no-video-thumbnails --no-metadata-json --no-compress-json --no-captions --no-videos  {target}")
@@ -902,7 +908,7 @@ def Guest():
                     sys.exit(exit_msg)
                 elif run == "home":
                     main()
-                elif run == "help":
+                elif run == "ls":
                     modulesForDownt()
                 else:    
                     posts = instaloader.Profile.from_username(insta.context, target).get_posts()
@@ -928,7 +934,7 @@ def Guest():
                     sys.exit(exit_msg)
                 elif run == "home":
                     main()
-                elif run == "help":
+                elif run == "ls":
                     modulesForDownt()
                 else:    
                     os.system(f"instaloader --no-videos --no-video-thumbnails --no-metadata-json --no-compress-json --no-captions  {target}")
@@ -953,12 +959,12 @@ def Guest():
                         sys.exit(exit_msg)
                     elif ShortCode == "home":
                         main()
-                    elif ShortCode == "help":
+                    elif ShortCode == "ls":
                         downt()
                     elif ShortCode == "--help":
                         print("\033[92m[+]Visit https://elfsight.com/blog/2015/10/how-to-get-instagram-photo-shortcode get post short code\033[92m")
                         app()
-                    elif ShortCode == "help":
+                    elif ShortCode == "ls":
                         modulesForDownt()
                     else:    
                         os.system(f"instaloader -- -{ShortCode}")
@@ -984,7 +990,7 @@ def Guest():
                     sys.exit(exit_msg)
                 elif run == "home":
                     main()
-                elif run == "help":
+                elif run == "ls":
                     modulesForDownt()
                 else:    
                     os.system(f"instaloader --no-profile-pic --no-posts --no-metadata-json --no-compress-json --no-captions --no-videos --tagged {target}")
@@ -1007,7 +1013,7 @@ def Guest():
                     sys.exit(exit_msg)
                 elif run == "home":
                     main()
-                elif run == "help":
+                elif run == "ls":
                     modulesForDownt()
                 else:    
                     os.system(f"instaloader --no-posts --no-metadata-json --no-compress-json --no-captions --igtv {target}")
@@ -1030,7 +1036,7 @@ def Guest():
                     sys.exit(exit_msg)
                 elif run == "home":
                     main()
-                elif run == "help":
+                elif run == "ls":
                     modulesForDownt()
                 else:    
                     os.system(f"instaloader --no-pictures --no-video-thumbnails --no-metadata-json --no-compress-json --no-captions  --igtv {target}")
@@ -1054,7 +1060,7 @@ def Guest():
                         sys.exit(exit_msg)
                     elif run == "home":
                         main()
-                    elif run == "help":
+                    elif run == "ls":
                         modulesForDownt()
                     elif run == "run":
                         X_percentage = 1
@@ -1076,13 +1082,13 @@ def Guest():
                     dmpp()
                 dmpp()
 
-            elif module == "help":
+            elif module == "ls":
                 modulesForDownt()
 
             elif module == "exit":
                 sys.exit(exit_msg)
 
-            elif module == "clear":
+            elif module == "cla":
                 os.system("clear")
 
             elif module == "back":
@@ -1123,7 +1129,7 @@ def modulesForGuest():
 
     chgt           :  Change target.
 
-    help           :  Display this help message.
+    ls             :  Display this help message.
 
     exit           :  Close Instrabot.\n\033[1;m\033[94m"""]
     ]
@@ -1150,7 +1156,7 @@ def modulesForLogin():
 
     adcm           :  An advanced comparison between two id.
 
-    help           :  Display this help message.
+    ls             :  Display this help message.
 
     rmlog          :  Delete all login logs.
 
@@ -1179,9 +1185,9 @@ def modulesForDownp():
 
     vap            :  Download all videos from profile.
 
-    gap            :  Download all igtv videos from profile.+
+    gap            :  Download all igtv videos from profile.
 
-    sap            :  Download all saved from profile.+
+    sap            :  Download all saved from profile.
 
     app            :  Download a particular post.
 
@@ -1189,7 +1195,7 @@ def modulesForDownp():
 
     uap            :  Update a profile.
 
-    help           :  Display this help message.
+    ls             :  Display this help message.
 
     exit           :  Close Instrabot.\n\033[1;m\033[94m"""]
     ]
@@ -1214,7 +1220,7 @@ def modulesForDownt():
 
     vap            :  Download all videos from profile.
 
-    gap            :  Download all igtv videos from profile.+
+    gap            :  Download all igtv videos from profile.
 
     app            :  Download a particular post.
 
