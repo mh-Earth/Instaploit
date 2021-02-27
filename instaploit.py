@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os,sys,time
 from itertools import islice
 from math import ceil
@@ -11,7 +12,7 @@ from banner import randomBanners,ranbomTips
 from getpass import getpass
 from random import choice
 
-
+print(f'encoding={sys.getdefaultencoding()}')
 exit_msg = "\033[91m\n[++] Shutting down ... Goodbye. (^_^)／\n\033[91m"
 def banner():
     colors = [Fore.LIGHTRED_EX, Fore.LIGHTGREEN_EX,Fore.LIGHTRED_EX, Fore.LIGHTRED_EX, Fore.LIGHTBLUE_EX, Fore.LIGHTMAGENTA_EX, Fore.LIGHTCYAN_EX,Fore.YELLOW]
@@ -477,7 +478,7 @@ def Login():
                 print("""\033[93m
 ┌═════════════════════════════════════════════════════════════════════════════════════┐
 █                                                                                     █
-█                             List out all Followers & following                      █
+█                            List out all Followers & following                       █
 █                                                                                     █
 █                   The account must be public or you follow that account             █
 █                                                                                     █
